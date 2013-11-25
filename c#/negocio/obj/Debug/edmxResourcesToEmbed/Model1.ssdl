@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="transitoModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="transitoModelStoreContainer">
+    <EntitySet Name="accidente" EntityType="transitoModel.Store.accidente" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="conductor" EntityType="transitoModel.Store.conductor" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="oficial" EntityType="transitoModel.Store.oficial" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VistaConductor" EntityType="transitoModel.Store.VistaConductor" store:Type="Views" store:Schema="dbo" store:Name="VistaConductor">
+      <DefiningQuery>SELECT 
+      [VistaConductor].[nombre] AS [nombre], 
+      [VistaConductor].[apellido] AS [apellido], 
+      [VistaConductor].[direccion] AS [direccion], 
+      [VistaConductor].[ci] AS [ci], 
+      [VistaConductor].[telefono] AS [telefono]
+      FROM [dbo].[VistaConductor] AS [VistaConductor]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VistaOficial" EntityType="transitoModel.Store.VistaOficial" store:Type="Views" store:Schema="dbo" store:Name="VistaOficial">
+      <DefiningQuery>SELECT 
+      [VistaOficial].[nombreO] AS [nombreO], 
+      [VistaOficial].[direccionO] AS [direccionO], 
+      [VistaOficial].[rango] AS [rango], 
+      [VistaOficial].[apellidoO] AS [apellidoO], 
+      [VistaOficial].[telefono] AS [telefono], 
+      [VistaOficial].[ci] AS [ci]
+      FROM [dbo].[VistaOficial] AS [VistaOficial]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__accidente__idcon__09DE7BCC" Association="transitoModel.Store.FK__accidente__idcon__09DE7BCC">
+      <End Role="conductor" EntitySet="conductor" />
+      <End Role="accidente" EntitySet="accidente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__accidente__idofo__08EA5793" Association="transitoModel.Store.FK__accidente__idofo__08EA5793">
+      <End Role="oficial" EntitySet="oficial" />
+      <End Role="accidente" EntitySet="accidente" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="accidente">
+    <Key>
+      <PropertyRef Name="idaccidente" />
+    </Key>
+    <Property Name="idaccidente" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="zona" Type="varchar" Nullable="false" MaxLength="90" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
+    <Property Name="idofocial" Type="int" />
+    <Property Name="idconductor" Type="int" />
+    <Property Name="descripcion" Type="varchar" MaxLength="90" />
+  </EntityType>
+  <EntityType Name="conductor">
+    <Key>
+      <PropertyRef Name="idconductor" />
+    </Key>
+    <Property Name="idconductor" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="90" />
+    <Property Name="apellido" Type="varchar" Nullable="false" MaxLength="90" />
+    <Property Name="direccion" Type="varchar" Nullable="false" MaxLength="90" />
+    <Property Name="ci" Type="int" />
+    <Property Name="telefono" Type="int" />
+  </EntityType>
+  <EntityType Name="oficial">
+    <Key>
+      <PropertyRef Name="idoficial" />
+    </Key>
+    <Property Name="idoficial" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nombreO" Type="varchar" Nullable="false" MaxLength="90" />
+    <Property Name="direccionO" Type="varchar" Nullable="false" MaxLength="90" />
+    <Property Name="rango" Type="varchar" Nullable="false" MaxLength="90" />
+    <Property Name="apellidoO" Type="varchar" MaxLength="90" />
+    <Property Name="telefono" Type="int" />
+    <Property Name="ci" Type="int" />
+  </EntityType>
+  <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'transito.dbo.VistaConductor' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+  <EntityType Name="VistaConductor">
+    <Key>
+      <PropertyRef Name="nombre" />
+      <PropertyRef Name="apellido" />
+      <PropertyRef Name="direccion" />
+    </Key>
+    <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="90" />
+    <Property Name="apellido" Type="varchar" Nullable="false" MaxLength="90" />
+    <Property Name="direccion" Type="varchar" Nullable="false" MaxLength="90" />
+    <Property Name="ci" Type="int" />
+    <Property Name="telefono" Type="int" />
+  </EntityType>
+  <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'transito.dbo.VistaOficial' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+  <EntityType Name="VistaOficial">
+    <Key>
+      <PropertyRef Name="nombreO" />
+      <PropertyRef Name="direccionO" />
+      <PropertyRef Name="rango" />
+    </Key>
+    <Property Name="nombreO" Type="varchar" Nullable="false" MaxLength="90" />
+    <Property Name="direccionO" Type="varchar" Nullable="false" MaxLength="90" />
+    <Property Name="rango" Type="varchar" Nullable="false" MaxLength="90" />
+    <Property Name="apellidoO" Type="varchar" MaxLength="90" />
+    <Property Name="telefono" Type="int" />
+    <Property Name="ci" Type="int" />
+  </EntityType>
+  <Association Name="FK__accidente__idcon__09DE7BCC">
+    <End Role="conductor" Type="transitoModel.Store.conductor" Multiplicity="0..1" />
+    <End Role="accidente" Type="transitoModel.Store.accidente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="conductor">
+        <PropertyRef Name="idconductor" />
+      </Principal>
+      <Dependent Role="accidente">
+        <PropertyRef Name="idconductor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__accidente__idofo__08EA5793">
+    <End Role="oficial" Type="transitoModel.Store.oficial" Multiplicity="0..1" />
+    <End Role="accidente" Type="transitoModel.Store.accidente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="oficial">
+        <PropertyRef Name="idoficial" />
+      </Principal>
+      <Dependent Role="accidente">
+        <PropertyRef Name="idofocial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="PAaccidentexmes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="fecha" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="pConductor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="pfecha" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="fecha1" Type="date" Mode="In" />
+  </Function>
+  <Function Name="pOficial" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ptres" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+</Schema>

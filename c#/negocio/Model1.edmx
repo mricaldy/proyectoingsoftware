@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="transitoModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="transitoModelStoreContainer">
+          <EntitySet Name="accidente" EntityType="transitoModel.Store.accidente" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="conductor" EntityType="transitoModel.Store.conductor" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="oficial" EntityType="transitoModel.Store.oficial" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="VistaConductor" EntityType="transitoModel.Store.VistaConductor" store:Type="Views" store:Schema="dbo" store:Name="VistaConductor">
+            <DefiningQuery>SELECT 
+      [VistaConductor].[nombre] AS [nombre], 
+      [VistaConductor].[apellido] AS [apellido], 
+      [VistaConductor].[direccion] AS [direccion], 
+      [VistaConductor].[ci] AS [ci], 
+      [VistaConductor].[telefono] AS [telefono]
+      FROM [dbo].[VistaConductor] AS [VistaConductor]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VistaOficial" EntityType="transitoModel.Store.VistaOficial" store:Type="Views" store:Schema="dbo" store:Name="VistaOficial">
+            <DefiningQuery>SELECT 
+      [VistaOficial].[nombreO] AS [nombreO], 
+      [VistaOficial].[direccionO] AS [direccionO], 
+      [VistaOficial].[rango] AS [rango], 
+      [VistaOficial].[apellidoO] AS [apellidoO], 
+      [VistaOficial].[telefono] AS [telefono], 
+      [VistaOficial].[ci] AS [ci]
+      FROM [dbo].[VistaOficial] AS [VistaOficial]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__accidente__idcon__09DE7BCC" Association="transitoModel.Store.FK__accidente__idcon__09DE7BCC">
+            <End Role="conductor" EntitySet="conductor" />
+            <End Role="accidente" EntitySet="accidente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__accidente__idofo__08EA5793" Association="transitoModel.Store.FK__accidente__idofo__08EA5793">
+            <End Role="oficial" EntitySet="oficial" />
+            <End Role="accidente" EntitySet="accidente" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="accidente">
+          <Key>
+            <PropertyRef Name="idaccidente" />
+          </Key>
+          <Property Name="idaccidente" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="zona" Type="varchar" Nullable="false" MaxLength="90" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="idofocial" Type="int" />
+          <Property Name="idconductor" Type="int" />
+          <Property Name="descripcion" Type="varchar" MaxLength="90" />
+        </EntityType>
+        <EntityType Name="conductor">
+          <Key>
+            <PropertyRef Name="idconductor" />
+          </Key>
+          <Property Name="idconductor" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="90" />
+          <Property Name="apellido" Type="varchar" Nullable="false" MaxLength="90" />
+          <Property Name="direccion" Type="varchar" Nullable="false" MaxLength="90" />
+          <Property Name="ci" Type="int" />
+          <Property Name="telefono" Type="int" />
+        </EntityType>
+        <EntityType Name="oficial">
+          <Key>
+            <PropertyRef Name="idoficial" />
+          </Key>
+          <Property Name="idoficial" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nombreO" Type="varchar" Nullable="false" MaxLength="90" />
+          <Property Name="direccionO" Type="varchar" Nullable="false" MaxLength="90" />
+          <Property Name="rango" Type="varchar" Nullable="false" MaxLength="90" />
+          <Property Name="apellidoO" Type="varchar" MaxLength="90" />
+          <Property Name="telefono" Type="int" />
+          <Property Name="ci" Type="int" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'transito.dbo.VistaConductor' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="VistaConductor">
+          <Key>
+            <PropertyRef Name="nombre" />
+            <PropertyRef Name="apellido" />
+            <PropertyRef Name="direccion" />
+          </Key>
+          <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="90" />
+          <Property Name="apellido" Type="varchar" Nullable="false" MaxLength="90" />
+          <Property Name="direccion" Type="varchar" Nullable="false" MaxLength="90" />
+          <Property Name="ci" Type="int" />
+          <Property Name="telefono" Type="int" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'transito.dbo.VistaOficial' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="VistaOficial">
+          <Key>
+            <PropertyRef Name="nombreO" />
+            <PropertyRef Name="direccionO" />
+            <PropertyRef Name="rango" />
+          </Key>
+          <Property Name="nombreO" Type="varchar" Nullable="false" MaxLength="90" />
+          <Property Name="direccionO" Type="varchar" Nullable="false" MaxLength="90" />
+          <Property Name="rango" Type="varchar" Nullable="false" MaxLength="90" />
+          <Property Name="apellidoO" Type="varchar" MaxLength="90" />
+          <Property Name="telefono" Type="int" />
+          <Property Name="ci" Type="int" />
+        </EntityType>
+        <Association Name="FK__accidente__idcon__09DE7BCC">
+          <End Role="conductor" Type="transitoModel.Store.conductor" Multiplicity="0..1" />
+          <End Role="accidente" Type="transitoModel.Store.accidente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="conductor">
+              <PropertyRef Name="idconductor" />
+            </Principal>
+            <Dependent Role="accidente">
+              <PropertyRef Name="idconductor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__accidente__idofo__08EA5793">
+          <End Role="oficial" Type="transitoModel.Store.oficial" Multiplicity="0..1" />
+          <End Role="accidente" Type="transitoModel.Store.accidente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="oficial">
+              <PropertyRef Name="idoficial" />
+            </Principal>
+            <Dependent Role="accidente">
+              <PropertyRef Name="idofocial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="PAaccidentexmes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fecha" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="pConductor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="pfecha" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fecha1" Type="date" Mode="In" />
+        </Function>
+        <Function Name="pOficial" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ptres" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="transitoModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="transitoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="accidente" EntityType="transitoModel.accidente" />
+          <EntitySet Name="conductor" EntityType="transitoModel.conductor" />
+          <EntitySet Name="oficial" EntityType="transitoModel.oficial" />
+          <AssociationSet Name="FK__accidente__idcon__09DE7BCC" Association="transitoModel.FK__accidente__idcon__09DE7BCC">
+            <End Role="conductor" EntitySet="conductor" />
+            <End Role="accidente" EntitySet="accidente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__accidente__idofo__08EA5793" Association="transitoModel.FK__accidente__idofo__08EA5793">
+            <End Role="oficial" EntitySet="oficial" />
+            <End Role="accidente" EntitySet="accidente" />
+          </AssociationSet>
+          <EntitySet Name="VistaConductor" EntityType="transitoModel.VistaConductor" />
+          <EntitySet Name="VistaOficial" EntityType="transitoModel.VistaOficial" />
+          <FunctionImport Name="pfecha">
+          <Parameter Name="fecha1" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="pOficial" />
+          <FunctionImport Name="pConductor" />
+        </EntityContainer>
+        <EntityType Name="accidente">
+          <Key>
+            <PropertyRef Name="idaccidente" />
+          </Key>
+          <Property Name="idaccidente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="zona" Type="String" Nullable="false" MaxLength="90" Unicode="false" FixedLength="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" />
+          <Property Name="idofocial" Type="Int32" />
+          <Property Name="idconductor" Type="Int32" />
+          <NavigationProperty Name="conductor" Relationship="transitoModel.FK__accidente__idcon__09DE7BCC" FromRole="accidente" ToRole="conductor" />
+          <NavigationProperty Name="oficial" Relationship="transitoModel.FK__accidente__idofo__08EA5793" FromRole="accidente" ToRole="oficial" />
+          <Property Type="String" Name="descripcion" MaxLength="90" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="conductor">
+          <Key>
+            <PropertyRef Name="idconductor" />
+          </Key>
+          <Property Name="idconductor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="90" Unicode="false" FixedLength="false" />
+          <Property Name="apellido" Type="String" Nullable="false" MaxLength="90" Unicode="false" FixedLength="false" />
+          <Property Name="direccion" Type="String" Nullable="false" MaxLength="90" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="accidente" Relationship="transitoModel.FK__accidente__idcon__09DE7BCC" FromRole="conductor" ToRole="accidente" />
+          <Property Type="Int32" Name="ci" />
+          <Property Type="Int32" Name="telefono" />
+        </EntityType>
+        <EntityType Name="oficial">
+          <Key>
+            <PropertyRef Name="idoficial" />
+          </Key>
+          <Property Name="idoficial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreO" Type="String" Nullable="false" MaxLength="90" Unicode="false" FixedLength="false" />
+          <Property Name="direccionO" Type="String" Nullable="false" MaxLength="90" Unicode="false" FixedLength="false" />
+          <Property Name="rango" Type="String" Nullable="false" MaxLength="90" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="accidente" Relationship="transitoModel.FK__accidente__idofo__08EA5793" FromRole="oficial" ToRole="accidente" />
+          <Property Type="String" Name="apellidoO" MaxLength="90" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="telefono" />
+          <Property Type="Int32" Name="ci" />
+        </EntityType>
+        <Association Name="FK__accidente__idcon__09DE7BCC">
+          <End Role="conductor" Type="transitoModel.conductor" Multiplicity="0..1" />
+          <End Role="accidente" Type="transitoModel.accidente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="conductor">
+              <PropertyRef Name="idconductor" />
+            </Principal>
+            <Dependent Role="accidente">
+              <PropertyRef Name="idconductor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__accidente__idofo__08EA5793">
+          <End Role="oficial" Type="transitoModel.oficial" Multiplicity="0..1" />
+          <End Role="accidente" Type="transitoModel.accidente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="oficial">
+              <PropertyRef Name="idoficial" />
+            </Principal>
+            <Dependent Role="accidente">
+              <PropertyRef Name="idofocial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="VistaConductor">
+          <Key>
+            <PropertyRef Name="nombre" />
+            <PropertyRef Name="apellido" />
+            <PropertyRef Name="direccion" />
+          </Key>
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="90" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="apellido" Nullable="false" MaxLength="90" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="direccion" Nullable="false" MaxLength="90" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ci" />
+          <Property Type="Int32" Name="telefono" />
+        </EntityType>
+        <EntityType Name="VistaOficial">
+          <Key>
+            <PropertyRef Name="nombreO" />
+            <PropertyRef Name="direccionO" />
+            <PropertyRef Name="rango" />
+          </Key>
+          <Property Type="String" Name="nombreO" Nullable="false" MaxLength="90" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="direccionO" Nullable="false" MaxLength="90" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="rango" Nullable="false" MaxLength="90" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="apellidoO" MaxLength="90" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="telefono" />
+          <Property Type="Int32" Name="ci" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="transitoModelStoreContainer" CdmEntityContainer="transitoEntities">
+          <EntitySetMapping Name="accidente">
+            <EntityTypeMapping TypeName="transitoModel.accidente">
+              <MappingFragment StoreEntitySet="accidente">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="idaccidente" ColumnName="idaccidente" />
+                <ScalarProperty Name="zona" ColumnName="zona" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="idofocial" ColumnName="idofocial" />
+                <ScalarProperty Name="idconductor" ColumnName="idconductor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="conductor">
+            <EntityTypeMapping TypeName="transitoModel.conductor">
+              <MappingFragment StoreEntitySet="conductor">
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="ci" ColumnName="ci" />
+                <ScalarProperty Name="idconductor" ColumnName="idconductor" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="oficial">
+            <EntityTypeMapping TypeName="transitoModel.oficial">
+              <MappingFragment StoreEntitySet="oficial">
+                <ScalarProperty Name="ci" ColumnName="ci" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="apellidoO" ColumnName="apellidoO" />
+                <ScalarProperty Name="idoficial" ColumnName="idoficial" />
+                <ScalarProperty Name="nombreO" ColumnName="nombreO" />
+                <ScalarProperty Name="direccionO" ColumnName="direccionO" />
+                <ScalarProperty Name="rango" ColumnName="rango" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VistaConductor">
+            <EntityTypeMapping TypeName="transitoModel.VistaConductor">
+              <MappingFragment StoreEntitySet="VistaConductor">
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="ci" ColumnName="ci" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VistaOficial">
+            <EntityTypeMapping TypeName="transitoModel.VistaOficial">
+              <MappingFragment StoreEntitySet="VistaOficial">
+                <ScalarProperty Name="ci" ColumnName="ci" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="apellidoO" ColumnName="apellidoO" />
+                <ScalarProperty Name="rango" ColumnName="rango" />
+                <ScalarProperty Name="direccionO" ColumnName="direccionO" />
+                <ScalarProperty Name="nombreO" ColumnName="nombreO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="pfecha" FunctionName="transitoModel.Store.pfecha" />
+          <FunctionImportMapping FunctionImportName="pOficial" FunctionName="transitoModel.Store.pOficial" />
+          <FunctionImportMapping FunctionImportName="pConductor" FunctionName="transitoModel.Store.pConductor" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1">
+        <EntityTypeShape EntityType="transitoModel.accidente" Width="1.5" PointX="3" PointY="1" Height="2.3648893229166656" IsExpanded="true" />
+        <EntityTypeShape EntityType="transitoModel.conductor" Width="1.5" PointX="0.75" PointY="1.125" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="transitoModel.oficial" Width="1.5" PointX="5.125" PointY="1.125" Height="2.5571907552083331" IsExpanded="true" />
+        <AssociationConnector Association="transitoModel.FK__accidente__idcon__09DE7BCC" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.3074446614583337" />
+          <ConnectorPoint PointX="3" PointY="2.3074446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="transitoModel.FK__accidente__idofo__08EA5793" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.125" PointY="2.3410953776041667" />
+          <ConnectorPoint PointX="4.5" PointY="2.3410953776041667" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="transitoModel.VistaConductor" Width="1.5" PointX="7.75" PointY="1.25" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="transitoModel.VistaOficial" Width="1.5" PointX="9.875" PointY="1.25" Height="2.1725878906249996" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

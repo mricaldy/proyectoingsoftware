@@ -1,0 +1,5 @@
+D:\ingieneria de  software\Proyecto\negocio\bin\Release\negocio.dll.config
+D:\ingieneria de  software\Proyecto\negocio\bin\Release\negocio.dll
+D:\ingieneria de  software\Proyecto\negocio\bin\Release\negocio.pdb
+D:\ingieneria de  software\Proyecto\negocio\obj\Release\negocio.dll
+D:\ingieneria de  software\Proyecto\negocio\obj\Release\negocio.pdb

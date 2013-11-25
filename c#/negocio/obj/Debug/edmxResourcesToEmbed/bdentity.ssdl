@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="transitoModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="transitoModelStoreContainer">
+    <EntitySet Name="accidente" EntityType="transitoModel.Store.accidente" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="conductor" EntityType="transitoModel.Store.conductor" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="oficial" EntityType="transitoModel.Store.oficial" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__accidente__idcon__09DE7BCC" Association="transitoModel.Store.FK__accidente__idcon__09DE7BCC">
+      <End Role="conductor" EntitySet="conductor" />
+      <End Role="accidente" EntitySet="accidente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__accidente__idofo__08EA5793" Association="transitoModel.Store.FK__accidente__idofo__08EA5793">
+      <End Role="oficial" EntitySet="oficial" />
+      <End Role="accidente" EntitySet="accidente" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="accidente">
+    <Key>
+      <PropertyRef Name="idaccidente" />
+    </Key>
+    <Property Name="idaccidente" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="zona" Type="varchar" Nullable="false" MaxLength="90" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
+    <Property Name="idofocial" Type="int" />
+    <Property Name="idconductor" Type="int" />
+  </EntityType>
+  <EntityType Name="conductor">
+    <Key>
+      <PropertyRef Name="idconductor" />
+    </Key>
+    <Property Name="idconductor" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="90" />
+    <Property Name="apellido" Type="varchar" Nullable="false" MaxLength="90" />
+    <Property Name="direccion" Type="varchar" Nullable="false" MaxLength="90" />
+  </EntityType>
+  <EntityType Name="oficial">
+    <Key>
+      <PropertyRef Name="idoficial" />
+    </Key>
+    <Property Name="idoficial" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nombreO" Type="varchar" Nullable="false" MaxLength="90" />
+    <Property Name="direccionO" Type="varchar" Nullable="false" MaxLength="90" />
+    <Property Name="rango" Type="varchar" Nullable="false" MaxLength="90" />
+  </EntityType>
+  <Association Name="FK__accidente__idcon__09DE7BCC">
+    <End Role="conductor" Type="transitoModel.Store.conductor" Multiplicity="0..1" />
+    <End Role="accidente" Type="transitoModel.Store.accidente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="conductor">
+        <PropertyRef Name="idconductor" />
+      </Principal>
+      <Dependent Role="accidente">
+        <PropertyRef Name="idconductor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__accidente__idofo__08EA5793">
+    <End Role="oficial" Type="transitoModel.Store.oficial" Multiplicity="0..1" />
+    <End Role="accidente" Type="transitoModel.Store.accidente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="oficial">
+        <PropertyRef Name="idoficial" />
+      </Principal>
+      <Dependent Role="accidente">
+        <PropertyRef Name="idofocial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

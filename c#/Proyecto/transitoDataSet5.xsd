@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="transitoDataSet5" targetNamespace="http://tempuri.org/transitoDataSet5.xsd" xmlns:mstns="http://tempuri.org/transitoDataSet5.xsd" xmlns="http://tempuri.org/transitoDataSet5.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="transitoConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="transitoConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Proyecto.Properties.Settings.GlobalReference.Default.transitoConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VistaOficialTableAdapter" GeneratorDataComponentClassName="VistaOficialTableAdapter" Name="VistaOficial" UserDataComponentName="VistaOficialTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="transitoConnectionString (Settings)" DbObjectName="transito.dbo.VistaOficial" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT nombreO, direccionO, rango, apellidoO, telefono, ci FROM dbo.VistaOficial</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="nombreO" DataSetColumn="nombreO" />
+              <Mapping SourceColumn="direccionO" DataSetColumn="direccionO" />
+              <Mapping SourceColumn="rango" DataSetColumn="rango" />
+              <Mapping SourceColumn="apellidoO" DataSetColumn="apellidoO" />
+              <Mapping SourceColumn="telefono" DataSetColumn="telefono" />
+              <Mapping SourceColumn="ci" DataSetColumn="ci" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="transitoDataSet5" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="transitoDataSet5" msprop:Generator_UserDSName="transitoDataSet5">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="VistaOficial" msprop:Generator_TableClassName="VistaOficialDataTable" msprop:Generator_TableVarName="tableVistaOficial" msprop:Generator_TablePropName="VistaOficial" msprop:Generator_RowDeletingName="VistaOficialRowDeleting" msprop:Generator_RowChangingName="VistaOficialRowChanging" msprop:Generator_RowEvHandlerName="VistaOficialRowChangeEventHandler" msprop:Generator_RowDeletedName="VistaOficialRowDeleted" msprop:Generator_UserTableName="VistaOficial" msprop:Generator_RowChangedName="VistaOficialRowChanged" msprop:Generator_RowEvArgName="VistaOficialRowChangeEvent" msprop:Generator_RowClassName="VistaOficialRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nombreO" msprop:Generator_ColumnVarNameInTable="columnnombreO" msprop:Generator_ColumnPropNameInRow="nombreO" msprop:Generator_ColumnPropNameInTable="nombreOColumn" msprop:Generator_UserColumnName="nombreO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="90" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="direccionO" msprop:Generator_ColumnVarNameInTable="columndireccionO" msprop:Generator_ColumnPropNameInRow="direccionO" msprop:Generator_ColumnPropNameInTable="direccionOColumn" msprop:Generator_UserColumnName="direccionO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="90" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rango" msprop:Generator_ColumnVarNameInTable="columnrango" msprop:Generator_ColumnPropNameInRow="rango" msprop:Generator_ColumnPropNameInTable="rangoColumn" msprop:Generator_UserColumnName="rango">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="90" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="apellidoO" msprop:Generator_ColumnVarNameInTable="columnapellidoO" msprop:Generator_ColumnPropNameInRow="apellidoO" msprop:Generator_ColumnPropNameInTable="apellidoOColumn" msprop:Generator_UserColumnName="apellidoO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="90" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="telefono" msprop:Generator_ColumnVarNameInTable="columntelefono" msprop:Generator_ColumnPropNameInRow="telefono" msprop:Generator_ColumnPropNameInTable="telefonoColumn" msprop:Generator_UserColumnName="telefono" type="xs:int" minOccurs="0" />
+              <xs:element name="ci" msprop:Generator_ColumnVarNameInTable="columnci" msprop:Generator_ColumnPropNameInRow="ci" msprop:Generator_ColumnPropNameInTable="ciColumn" msprop:Generator_UserColumnName="ci" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="transitoModelStoreContainer" CdmEntityContainer="transitoEntities">
+    <EntitySetMapping Name="accidente">
+      <EntityTypeMapping TypeName="transitoModel.accidente">
+        <MappingFragment StoreEntitySet="accidente">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idaccidente" ColumnName="idaccidente" />
+          <ScalarProperty Name="zona" ColumnName="zona" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="idofocial" ColumnName="idofocial" />
+          <ScalarProperty Name="idconductor" ColumnName="idconductor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="conductor">
+      <EntityTypeMapping TypeName="transitoModel.conductor">
+        <MappingFragment StoreEntitySet="conductor">
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="ci" ColumnName="ci" />
+          <ScalarProperty Name="idconductor" ColumnName="idconductor" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="oficial">
+      <EntityTypeMapping TypeName="transitoModel.oficial">
+        <MappingFragment StoreEntitySet="oficial">
+          <ScalarProperty Name="ci" ColumnName="ci" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="apellidoO" ColumnName="apellidoO" />
+          <ScalarProperty Name="idoficial" ColumnName="idoficial" />
+          <ScalarProperty Name="nombreO" ColumnName="nombreO" />
+          <ScalarProperty Name="direccionO" ColumnName="direccionO" />
+          <ScalarProperty Name="rango" ColumnName="rango" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VistaConductor">
+      <EntityTypeMapping TypeName="transitoModel.VistaConductor">
+        <MappingFragment StoreEntitySet="VistaConductor">
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="ci" ColumnName="ci" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VistaOficial">
+      <EntityTypeMapping TypeName="transitoModel.VistaOficial">
+        <MappingFragment StoreEntitySet="VistaOficial">
+          <ScalarProperty Name="ci" ColumnName="ci" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="apellidoO" ColumnName="apellidoO" />
+          <ScalarProperty Name="rango" ColumnName="rango" />
+          <ScalarProperty Name="direccionO" ColumnName="direccionO" />
+          <ScalarProperty Name="nombreO" ColumnName="nombreO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="pfecha" FunctionName="transitoModel.Store.pfecha" />
+    <FunctionImportMapping FunctionImportName="pOficial" FunctionName="transitoModel.Store.pOficial" />
+    <FunctionImportMapping FunctionImportName="pConductor" FunctionName="transitoModel.Store.pConductor" />
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DA28B520-747D-4CAD-8D3A-F97B2588A291}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Proyecto</RootNamespace>
+    <AssemblyName>Proyecto</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Reports">
+      <HintPath>C:\Users\Miguel\Desktop\validar datos dll\ReportNET_0_09_05_FW2_Beta-release\Reports.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ValidarDatos">
+      <HintPath>C:\Users\Miguel\Desktop\validar datos dll\ValidarDatos.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAcidente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAcidente.Designer.cs">
+      <DependentUpon>FrmAcidente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmoficial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmoficial.Designer.cs">
+      <DependentUpon>frmoficial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frmreporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frmreporte.Designer.cs">
+      <DependentUpon>Frmreporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="transitoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>transitoDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="transitoDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>transitoDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="transitoDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>transitoDataSet10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="transitoDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>transitoDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="transitoDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>transitoDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="transitoDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>transitoDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="transitoDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>transitoDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="transitoDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>transitoDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="transitoDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>transitoDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="transitoDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>transitoDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="transitoDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>transitoDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="transitoDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>transitoDataSet9.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAcidente.resx">
+      <DependentUpon>FrmAcidente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmoficial.resx">
+      <DependentUpon>frmoficial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frmreporte.resx">
+      <DependentUpon>Frmreporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ReportOC.rdlc" />
+    <EmbeddedResource Include="ReportOficial-Conductor.rdlc" />
+    <EmbeddedResource Include="Reportpconductor.rdlc" />
+    <EmbeddedResource Include="Reportpoficial.rdlc" />
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="transitoDataSet.xsc">
+      <DependentUpon>transitoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="transitoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>transitoDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="transitoDataSet.xss">
+      <DependentUpon>transitoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="transitoDataSet1.xsc">
+      <DependentUpon>transitoDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="transitoDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>transitoDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="transitoDataSet1.xss">
+      <DependentUpon>transitoDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="transitoDataSet10.xsc">
+      <DependentUpon>transitoDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="transitoDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>transitoDataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="transitoDataSet10.xss">
+      <DependentUpon>transitoDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="transitoDataSet11.xsc">
+      <DependentUpon>transitoDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="transitoDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>transitoDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="transitoDataSet11.xss">
+      <DependentUpon>transitoDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="transitoDataSet2.xsc">
+      <DependentUpon>transitoDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="transitoDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>transitoDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="transitoDataSet2.xss">
+      <DependentUpon>transitoDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="transitoDataSet3.xsc">
+      <DependentUpon>transitoDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="transitoDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>transitoDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="transitoDataSet3.xss">
+      <DependentUpon>transitoDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="transitoDataSet4.xsc">
+      <DependentUpon>transitoDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="transitoDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>transitoDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="transitoDataSet4.xss">
+      <DependentUpon>transitoDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="transitoDataSet5.xsc">
+      <DependentUpon>transitoDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="transitoDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>transitoDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="transitoDataSet5.xss">
+      <DependentUpon>transitoDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="transitoDataSet6.xsc">
+      <DependentUpon>transitoDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="transitoDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>transitoDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="transitoDataSet6.xss">
+      <DependentUpon>transitoDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="transitoDataSet7.xsc">
+      <DependentUpon>transitoDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="transitoDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>transitoDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="transitoDataSet7.xss">
+      <DependentUpon>transitoDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="transitoDataSet8.xsc">
+      <DependentUpon>transitoDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="transitoDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>transitoDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="transitoDataSet8.xss">
+      <DependentUpon>transitoDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="transitoDataSet9.xsc">
+      <DependentUpon>transitoDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="transitoDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>transitoDataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="transitoDataSet9.xss">
+      <DependentUpon>transitoDataSet9.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\negocio\negocio.csproj">
+      <Project>{BF65F80C-2FBD-4DE2-AEC4-CF37E3177A68}</Project>
+      <Name>negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

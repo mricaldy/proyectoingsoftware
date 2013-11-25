@@ -1,0 +1,5 @@
+D:\ingieneria de  software\Proyecto\negocio\bin\Debug\negocio.dll.config
+D:\ingieneria de  software\Proyecto\negocio\bin\Debug\negocio.dll
+D:\ingieneria de  software\Proyecto\negocio\bin\Debug\negocio.pdb
+D:\ingieneria de  software\Proyecto\negocio\obj\Debug\negocio.dll
+D:\ingieneria de  software\Proyecto\negocio\obj\Debug\negocio.pdb

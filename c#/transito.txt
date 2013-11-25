@@ -1,0 +1,65 @@
+create database transito 
+use transito 
+
+create table conductor(
+idconductor int identity primary key not null,
+nombre varchar(90) not null,
+apellido varchar(90) not null,
+direccion varchar(90) not null,
+ci int,
+telefono int
+)
+
+create table oficial(
+idoficial int identity primary key not null,
+nombreO varchar(90) not null,
+direccionO varchar(90) not null,
+rango varchar(90) not null,
+apellidoO varchar(90) not null,
+telefono int not null,
+ci int
+)
+create table accidente(
+idaccidente int identity primary key not null,
+zona varchar(90) not null,
+fecha datetime not null,
+idofocial int foreign key  references oficial(idoficial),
+idconductor  int foreign key references conductor(idconductor)
+)
+
+
+create view VistaOficial
+as
+select o.nombreO, o.direccionO, o.rango, o.apellidoO, o.telefono, o.ci
+from oficial o 
+
+select * from VistaOficial
+
+create view VistaConductor
+as
+select c.nombre, c.apellido, c.direccion, c.ci , c.telefono 
+from conductor c 
+
+select * from VistaConductor
+
+
+_____________-- PROCEDIMIENTOS DE ALMACENADO--_____________
+create procedure reporte1
+as
+begin
+select o.nombreO, o.apellidoO, o.rango, c.nombre, c.apellido, c.telefono
+from oficial o inner join accidente a on o.idoficial=a.idoficial inner join conductor c on o.idconductor=c.idconductor 
+end
+
+create procedure reporte2
+@fecha1 date,
+@fecha2 date
+as
+begin
+select o.nombreO, o.apellidoO, o.rango, c.nombre, c.apellido, c.telefono
+from oficial o inner join accidente a on o.idoficial=a.idoficial inner join conductor c on o.idconductor=c.idconductor
+where   fecha between @fecha1  and @fecha2
+end
+
+
+_____________--

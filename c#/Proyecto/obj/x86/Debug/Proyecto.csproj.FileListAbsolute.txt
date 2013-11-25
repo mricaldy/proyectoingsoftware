@@ -1,0 +1,17 @@
+D:\ingieneria de  software\Proyecto\Proyecto\bin\Debug\Proyecto.exe.config
+D:\ingieneria de  software\Proyecto\Proyecto\bin\Debug\Proyecto.exe
+D:\ingieneria de  software\Proyecto\Proyecto\bin\Debug\Proyecto.pdb
+D:\ingieneria de  software\Proyecto\Proyecto\bin\Debug\negocio.dll
+D:\ingieneria de  software\Proyecto\Proyecto\bin\Debug\ValidarDatos.dll
+D:\ingieneria de  software\Proyecto\Proyecto\bin\Debug\negocio.pdb
+D:\ingieneria de  software\Proyecto\Proyecto\obj\x86\Debug\Proyecto.csprojResolveAssemblyReference.cache
+D:\ingieneria de  software\Proyecto\Proyecto\obj\x86\Debug\Proyecto.Form2.resources
+D:\ingieneria de  software\Proyecto\Proyecto\obj\x86\Debug\Proyecto.FrmAcidente.resources
+D:\ingieneria de  software\Proyecto\Proyecto\obj\x86\Debug\Proyecto.frmoficial.resources
+D:\ingieneria de  software\Proyecto\Proyecto\obj\x86\Debug\Proyecto.Frmreporte.resources
+D:\ingieneria de  software\Proyecto\Proyecto\obj\x86\Debug\Proyecto.Properties.Resources.resources
+D:\ingieneria de  software\Proyecto\Proyecto\obj\x86\Debug\Proyecto.csproj.GenerateResource.Cache
+D:\ingieneria de  software\Proyecto\Proyecto\obj\x86\Debug\RdlCompile.cache
+D:\ingieneria de  software\Proyecto\Proyecto\obj\x86\Debug\RdlCompile.compiled
+D:\ingieneria de  software\Proyecto\Proyecto\obj\x86\Debug\Proyecto.exe
+D:\ingieneria de  software\Proyecto\Proyecto\obj\x86\Debug\Proyecto.pdb
